@@ -14,7 +14,6 @@ import static gregtech.api.util.GTStructureUtility.ofAnyWater;
 import static gregtech.api.util.GTStructureUtility.ofFrame;
 
 import java.util.List;
-import java.util.Objects;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -50,7 +49,6 @@ import gregtech.api.recipe.RecipeMap;
 import gregtech.api.recipe.RecipeMaps;
 import gregtech.api.recipe.check.CheckRecipeResult;
 import gregtech.api.recipe.check.CheckRecipeResultRegistry;
-import gregtech.api.recipe.check.SimpleCheckRecipeResult;
 import gregtech.api.structure.error.StructureError;
 import gregtech.api.util.GTRecipe;
 import gregtech.api.util.GTStructureUtility;
@@ -237,14 +235,14 @@ public class MTEFrothFlotationCell extends MTEExtendedPowerMultiBlockBase<MTEFro
 
                 // Set material locked for this controller
                 // "milled" check is to clear old save data since the name caching system changed
-                if (lockedMaterialName == null || !lockedMaterialName.startsWith("milled")) {
-                    lockedMaterialName = milledName;
-                }
+                // if (lockedMaterialName == null || !lockedMaterialName.startsWith("milled")) {
+                // lockedMaterialName = milledName;
+                // }
 
                 // Ensure oredict matches
-                if (!Objects.equals(lockedMaterialName, milledName)) {
-                    return SimpleCheckRecipeResult.ofFailure("machine_locked_to_different_recipe");
-                }
+                // if (!Objects.equals(lockedMaterialName, milledName)) {
+                // return SimpleCheckRecipeResult.ofFailure("machine_locked_to_different_recipe");
+                // }
                 return CheckRecipeResultRegistry.SUCCESSFUL;
             }
 
