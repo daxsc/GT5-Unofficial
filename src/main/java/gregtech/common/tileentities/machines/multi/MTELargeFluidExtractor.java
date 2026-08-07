@@ -3,11 +3,7 @@ package gregtech.common.tileentities.machines.multi;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlock;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
-import static gregtech.api.enums.HatchElement.Energy;
-import static gregtech.api.enums.HatchElement.InputBus;
-import static gregtech.api.enums.HatchElement.Maintenance;
-import static gregtech.api.enums.HatchElement.OutputBus;
-import static gregtech.api.enums.HatchElement.OutputHatch;
+import static gregtech.api.enums.HatchElement.*;
 import static gregtech.api.enums.Textures.BlockIcons.getCasingTextureForId;
 import static gregtech.api.util.GTStructureUtility.activeCoils;
 import static gregtech.api.util.GTStructureUtility.buildHatchAdder;
@@ -93,7 +89,7 @@ public class MTELargeFluidExtractor extends MTEExtendedPowerMultiBlockBase<MTELa
                 }))
         .addElement('c',
             buildHatchAdder(MTELargeFluidExtractor.class)
-                .atLeast(InputBus, OutputBus, OutputHatch, Energy, Maintenance)
+                .atLeast(InputBus, OutputBus, OutputHatch, ExoticEnergy.or(Energy), Maintenance)
                 .casingIndex(CASING_INDEX) // Robust Tungstensteel Machine Casing
                 .hint(1)
                 .buildAndChain(
@@ -278,6 +274,7 @@ public class MTELargeFluidExtractor extends MTEExtendedPowerMultiBlockBase<MTELa
                     BASE_EU_MULTIPLIER,
                     HEATING_COIL_EU_MULTIPLIER,
                     EnumChatFormatting.GRAY))
+            .addSupportAny()
             .addGlassEnergyLimitInfo()
             .beginStructureBlock(5, 9, 5, false)
             .addController("Front bottom center")
