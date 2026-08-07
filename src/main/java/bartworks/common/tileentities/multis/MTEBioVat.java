@@ -19,7 +19,12 @@ import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofBlockAn
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.ofChain;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.onElementPass;
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
-import static gregtech.api.enums.HatchElement.*;
+import static gregtech.api.enums.HatchElement.Energy;
+import static gregtech.api.enums.HatchElement.InputBus;
+import static gregtech.api.enums.HatchElement.InputHatch;
+import static gregtech.api.enums.HatchElement.Maintenance;
+import static gregtech.api.enums.HatchElement.OutputBus;
+import static gregtech.api.enums.HatchElement.OutputHatch;
 import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_FRONT_DISTILLATION_TOWER;
 import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_FRONT_DISTILLATION_TOWER_ACTIVE;
 import static gregtech.api.enums.Textures.BlockIcons.OVERLAY_FRONT_DISTILLATION_TOWER_ACTIVE_GLOW;
@@ -148,7 +153,7 @@ public class MTEBioVat extends MTEEnhancedMultiBlockBase<MTEBioVat>
                         OutputBus,
                         InputHatch,
                         OutputHatch,
-                        ExoticEnergy.or(Energy),
+                        Energy,
                         RadioHatchElement.RadioHatch)
                     .hint(1)
                     .casingIndex(CASING_INDEX)
@@ -196,7 +201,6 @@ public class MTEBioVat extends MTEEnhancedMultiBlockBase<MTEBioVat>
             .addInfo("Radiation can be either a minimum requirement or an exact value")
             .addInfo("Efficiency depends on Output Hatch fluid level")
             .addInfo("Efficiency peaks at " + EnumChatFormatting.LIGHT_PURPLE + "50%")
-            .addSupportAny()
             .beginStructureBlock(5, 4, 5, false)
             .addController("Front bottom center")
             .addCasing("19-45", "Stainless Steel Machine Casing", false)
